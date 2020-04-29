@@ -17,13 +17,7 @@ csl: iso690-author-date-fr-no-abstract.csl
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, fig.pos= "h")
-library(ade4)
-library(FactoMineR)
-library(bookdown)
-library(knitr)
-library(tibble)
-library(factoextra)
+source("chargement librairies.R")
 ```
 
 ```{r logo, echo=FALSE, out.width = '100%', fig.align = "center",fig.cap="Logo Rmarkdown"}
@@ -66,7 +60,7 @@ med<-tapply(temp,villes,mean)
 
 Le jeu de donné est complété pour `r nrow(datatemp)` villes et contient  `r ncol(datatemp)` variables dont les tempértures des 12 mois de l'année, la moyenne, l'amplitude, latitude et longitude ainsi qu'un indicateur de grandes Rg. La temperature moyenne en France est égale à `r round(mean(unlist(datatemp[,1:12])),2)` $+/-$ `r round(sd(unlist(datatemp[,1:12])),2)` degrés Celcius (moyenne $+/-$ écart type). La ville la plus froide est : `r names(med[med==min(med)])` ; et la ville la plus chaudes est : `r names(med[med==max(med)])` (Fig. \ref{fig:tempvilles}).
  
-```{r datatempville, echo = F, eval=T, fig.height = 2, fig.width = 6, fig.align = "center", fig.cap="Températures par villes\\label{fig:tempvilles}"}
+```{r datatempville, echo = F, eval=T, fig.height = 5, fig.width = 6, fig.align = "center", fig.cap="Températures par villes\\label{fig:tempvilles}"}
 villes2<-factor(villes,levels(villes)[order(med)])
 boxplot(temp~villes2,las=2,col="grey",ylab="Températures mensuelles",cex.lab=0.7,cex.axis=0.7)
 ```
@@ -76,8 +70,12 @@ boxplot(temp~villes2,las=2,col="grey",ylab="Températures mensuelles",cex.lab=0.
 ```{r tempreg, echo = F}
 moyTR<-round(tapply(datatemp$Moye,datatemp$Région,mean),2)
 maxAR<-tapply(datatemp$Ampl,datatemp$Région,max)
+<<<<<<< HEAD
 dd <- as_tibble(datatemp)
 
+=======
+#dd<-data.frame(Régions=levels(datatemp$Région),Moyenne=moyTR,AmplitudeM=maxAR)
+>>>>>>> e9a10af8d5467ad97c5620944e15fb40460790aa
 ```
 
 &nbsp;
