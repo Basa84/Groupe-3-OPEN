@@ -17,13 +17,7 @@ csl: iso690-author-date-fr-no-abstract.csl
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, fig.pos= "h")
-library(ade4)
-library(FactoMineR)
-library(bookdown)
-library(knitr)
-library(tibble)
-library(factoextra)
+source("chargement librairies.R")
 ```
 
 ```{r logo, echo=FALSE, out.width = '100%', fig.align = "center",fig.cap="Logo Rmarkdown"}
