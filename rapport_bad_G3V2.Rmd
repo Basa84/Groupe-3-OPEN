@@ -77,7 +77,10 @@ boxplot(temp~villes2,las=2,col="grey",ylab="Températures mensuelles",cex.lab=0.
 moyTR<-round(tapply(datatemp$Moye,datatemp$Région,mean),2)
 maxAR<-tapply(datatemp$Ampl,datatemp$Région,max)
 #dd<-data.frame(Régions=levels(datatemp$Région),Moyenne=moyTR,AmplitudeM=maxAR)
+<<<<<<< HEAD
+=======
 
+>>>>>>> 774b618f8e855da58bee7020413d96c9d512ca19
 ```
 
 &nbsp;
