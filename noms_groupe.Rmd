@@ -1,0 +1,24 @@
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Groupe 3
+Vivien Guerin
+
+Thibaut Demesse
+
+Orianne COSI
+
+Maële Maleysson
+
+Bastian Sauze
+
+Olivier HODIEB
+
+Perrine Truche
+
+Céline Jacqueton
+
+Eloise Giroud
+
