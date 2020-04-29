@@ -44,7 +44,7 @@ knitr::include_graphics("rmarkdown.png")
 ```{r datatemp, echo = TRUE}
 link <- "http://factominer.free.fr/course/donnees/AnaDo_JeuDonnees_TemperatFrance.csv"
 datatemp <- read.table(link, h=TRUE, sep=";", dec=".", row.names=1, encoding="latin1")
-#dd <- as_tibble(datatemp)
+dd <- as_tibble(datatemp)
 ```
 
 
@@ -76,7 +76,8 @@ boxplot(temp~villes2,las=2,col="grey",ylab="Températures mensuelles",cex.lab=0.
 ```{r tempreg, echo = F}
 moyTR<-round(tapply(datatemp$Moye,datatemp$Région,mean),2)
 maxAR<-tapply(datatemp$Ampl,datatemp$Région,max)
-dd<-data.frame(Régions=levels(datatemp$Région),Moyenne=moyTR,AmplitudeM=maxAR)
+#dd<-data.frame(Régions=levels(datatemp$Région),Moyenne=moyTR,AmplitudeM=maxAR)
+
 ```
 
 &nbsp;
