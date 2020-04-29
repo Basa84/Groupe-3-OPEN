@@ -64,14 +64,40 @@ med<-tapply(temp,villes,mean)
 
 &nbsp;
 
-Le jeu de donné est complété pour `r nrow(datatemp)` villes et contient  `r ncol(datatemp)` variables dont les tempértures des 12 mois de l'année, la moyenne, l'amplitude, latitude et longitude ainsi qu'un indicateur de grandes régions. La temperature moyenne en France est égale à `r round(mean(unlist(datatemp[,1:12])),2)` $+/-$ `r round(sd(unlist(datatemp[,1:12])),2)` degrés Celcius (moyenne $+/-$ écart type). La ville la plus froide est : `r names(med[med==min(med)])` ; et la ville la plus chaudes est : `r names(med[med==max(med)])` (Fig. \ref{fig:tempvilles}).
+Le jeu de donné est complété pour `r nrow(datatemp)` villes et contient  `r ncol(datatemp)` variables dont les tempértures des 12 mois de l'année, la moyenne, l'amplitude, latitude et longitude ainsi qu'un indicateur de grandes Rg. La temperature moyenne en France est égale à `r round(mean(unlist(datatemp[,1:12])),2)` $+/-$ `r round(sd(unlist(datatemp[,1:12])),2)` degrés Celcius (moyenne $+/-$ écart type). La ville la plus froide est : `r names(med[med==min(med)])` ; et la ville la plus chaudes est : `r names(med[med==max(med)])` (Fig. \ref{fig:tempvilles}).
  
 ```{r datatempville, echo = F, eval=T, fig.height = 2, fig.width = 6, fig.align = "center", fig.cap="Températures par villes\\label{fig:tempvilles}"}
 villes2<-factor(villes,levels(villes)[order(med)])
 boxplot(temp~villes2,las=2,col="grey",ylab="Températures mensuelles",cex.lab=0.7,cex.axis=0.7)
 ```
 
+## **Températures par grandes Rg**
 
+Les temperatures des quatres grandes Rg sont : 
+
+ 
+```{r tempreg, echo = F}
+moyTR<-round(tapply(datatemp$Moye,datatemp$Région,mean),2)
+maxAR<-tapply(datatemp$Ampl,datatemp$Région,max)
+dd<-data.frame(Rg=levels(datatemp$Région),Moyenne=moyTR,AmplitudeM=maxAR)
+```
+
+&nbsp;
+
+\begin{center}Table 1 : Températures par grandes Rg.\end{center}  
+Rg          |	Moyennes         | Amplitude maximum 
+---------------- | ----------------  | --------------------  
+`r dd$Région[1]` | `r dd$Moyenne[1]` | `r dd$AmplitudeM[1]` 
+`r dd$Région[2]` | `r dd$Moyenne[2]` | `r dd$AmplitudeM[2]` 
+
+
+**Interpretation**: Nous observons que ........................................................................  
+..................................................................................................................
+..................................................................................................................
+..................................................................................................................
+..................................................................................................................
+
+&nbsp;
 
 # **Une première analyse **
 
@@ -98,7 +124,7 @@ Tplot<-function(tempr,tmean) {
 
  *Application*
 
-```{r graphtemp, echo = F,eval=T,fig.height = 5, fig.width = 6,fig.cap="Courbes de températures mensuelles par régions"}
+```{r graphtemp, echo = F,eval=T,fig.height = 5, fig.width = 6,fig.cap="Courbes de températures mensuelles par Rg"}
 #température moyenne
 tmean<-apply(datatemp[,1:12],2,mean)
 #Découpage du tableau par région
