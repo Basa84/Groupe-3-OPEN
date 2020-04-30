@@ -1,9 +1,6 @@
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+## Les membres du groupe
 
-## Groupe 3
 Vivien Guerin
 
 Thibaut Demesse
@@ -14,11 +11,10 @@ Maële Maleysson
 
 Bastian Sauze
 
-Olivier HODIEB
+Olivier HODIE
 
 Perrine Truche
 
 Céline Jacqueton
 
 Eloise Giroud
-
