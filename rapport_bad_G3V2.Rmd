@@ -1,8 +1,8 @@
 ---
 title: Températures dans les villes Françaises - Editions de rapports automatisés avec Rmarkdown.
-author: V. Tolon
-date: 28 avril 2020
-output:
+author: Groupe 3
+date: 29 avril 2020
+output: 
   pdf_document:
     toc: yes
     toc_depth: 3
@@ -70,12 +70,9 @@ boxplot(temp~villes2,las=2,col="grey",ylab="Températures mensuelles",cex.lab=0.
 ```{r tempreg, echo = F}
 moyTR<-round(tapply(datatemp$Moye,datatemp$Région,mean),2)
 maxAR<-tapply(datatemp$Ampl,datatemp$Région,max)
-<<<<<<< HEAD
 dd <- as_tibble(datatemp)
-
-=======
 #dd<-data.frame(Régions=levels(datatemp$Région),Moyenne=moyTR,AmplitudeM=maxAR)
->>>>>>> e9a10af8d5467ad97c5620944e15fb40460790aa
+
 ```
 
 &nbsp;
@@ -174,9 +171,7 @@ Avec : $d^2_{e_i,g}=\sum^p_{j=1}x^2_{ij}$ = Distance euclidienne au centre de gr
 Elles permettent de determiner la proportion d'intertie expliquée par chacuns des axes.  
 
 ```{r valp, echo = T,eval=T,fig.cap="Valeurs propres",fig.height = 3, fig.width = 4}
-res <- PCA(datatemp, quanti.sup=13:16, quali.sup=17,graph=F)
-par(mfrow=c(1,1),mar=c(4,4,2,2))
-barplot(res$eig[,2],ylab="Inertie %",names.arg = paste("Axe",1: nrow(res$eig)),las=2,cex.axis=0.7,cex.lab=0.8)
+source("graphique regions.R")
 ```
 
 **Interpretation**: Nous observons que l'axe 1 explique `r round(res$eig[1,2],2)`$\%$ de l'intertie totale   

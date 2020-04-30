@@ -1,6 +1,6 @@
 ---
 title: "Installation de TinyTex"
-author: "BSAUZE"
+author: "Groupe 3"
 date: "29/04/2020"
 output: pdf_document
 ---
@@ -9,22 +9,39 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+## TinyTex
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+Une bibliothèque logicielle pour compiler et créer facilement des rapport en PDF avec le langage R.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+Pour plus d'informations, vous pouvez visiter le site https://yihui.org/tinytex/
+
+
 
 ```{r cars}
-summary(cars)
+
 ```
 
-## Including Plots
+## Télécharger TinyTex
 
-You can also embed plots, for example:
+Dans la console de RStudio (en bas à gauche)
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
+### install.packages("tinytex")
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+Ceci téléchargera automatiquement TinyTex sur votre machine en s'adaptant à l'OS.
+
+## Installer TinyTex
+
+Il y a une petite subtilité : la commande précédente ne fait qu'installer un installateur qui doit encore être exécuté. Ce qui se fait avec la commande suivante :
+
+### tinytex::install_tinytex()
+
+Patientez, le temps que TinyTex se télécharge et s'installe.
+Une fois que TinyTex est installé, vous pouvez modifier en haut du fichier
+
+### output: html
+
+en
+
+### output: pdf_document
+
+Et faire un knit le plus simplement du monde.
